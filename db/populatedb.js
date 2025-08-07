@@ -14,24 +14,23 @@ const connectionString =
 	argv[2] || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`;
 
 const psqlText = `
+	CREATE TABLE IF NOT EXISTS developers (
+		id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+		name VARCHAR ( 255 ) UNIQUE NOT NULL,
+		description TEXT NOT NULL,
+		followers INTEGER DEFAULT 0 CHECK (followers >= 0),
+		founding_date DATE DEFAULT CURRENT_DATE CHECK (founding_date <= CURRENT_DATE)
+	);
+	
 	CREATE TABLE IF NOT EXISTS games (
 		id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 		title VARCHAR ( 255 ) UNIQUE NOT NULL,
-		release_date TIMESTAMPTZ DEFAULT NOW(),
 		description TEXT,
 		rating DECIMAL(2, 1) CHECK (rating >=0 AND rating <=5),
 		price DECIMAL (10, 2),
 		created_at TIMESTAMPTZ DEFAULT NOW(),
 		updated_at TIMESTAMPTZ DEFAULT NOW(),
 		developer_id INTEGER NOT NULL REFERENCES developers (id)
-	);
-
-	CREATE TABLE IF NOT EXISTS developers (
-		id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-		name VARCHAR ( 255 ) UNIQUE NOT NULL,
-		description TEXT NOT NULL,
-		followers INTEGER DEFAULT 0 CHECK (followers >= 0),
-		founding_date DATE DEFAULT CURRENT_DATE() CHECK (founding_date <= CURRENT_DATE)
 	);
 
 	CREATE TABLE IF NOT EXISTS genres (
