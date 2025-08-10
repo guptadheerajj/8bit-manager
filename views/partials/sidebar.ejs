@@ -1,0 +1,61 @@
+<% 
+const genres = [
+	{ option: "Indy", value: "indy" },
+	{ option: "Adventure", value: "adventure" },
+	{ option: "MMO", value: "mmo" },
+	{ option: "Casual Game", value: "casualGame" },
+	{ option: "Simulator", value: "simulator" },
+	{ option: "Sports Game", value: "sportsGame" },
+	{ option: "Action Game", value: "actionGame" },
+];
+
+const platforms = [
+	{ option: "PC", value: "pc" },
+	{ option: "Playstation 5", value: "playstation5" },
+	{ option: "Playstation 4", value: "playstation4" },
+	{ option: "Xbox Series", value: "xbox" },
+	{ option: "Nintendo Switch", value: "nintendoSwitch" },
+];
+%>
+
+<aside>
+  <form action="" method="post">
+    <fieldset>
+      <h2>Genres</h2>
+      <% genres.forEach(genre => { %>
+      <div>
+        <input type="checkbox" name="<%= genre.value %>" value="<%= genre.value %>" id="<%= genre.value %>">
+        <label for="<%= genre.value %>"><%= genre.option %></label>
+      </div>
+      <% }); %>
+    </fieldset>
+    <fieldset>
+      <h2>Platforms</h2>
+      <% platforms.forEach(platform => { %>
+      <div>
+        <input type="checkbox" name="<%= platform.value %>" value="<%= platform.value %>" id="<%= platform.value %>">
+        <label for="<%= platform.value %>"><%= platform.option %></label>
+      </div>
+      <% }); %>
+    </fieldset>
+
+    <fieldset>
+      <h2>Price</h2>
+      <div class="flex-row">
+        <div class="price-input-container">
+          <label for="low">$</label>
+          <input type="number" name="low" id="low">
+        </div>
+        <div class="line"></div>
+        <div class="price-input-container">
+          <label for="high">$</label>
+          <input type="number" name="high" id="high">
+        </div>
+      </div>
+    </fieldset>
+
+    <div>
+      <button>Apply Filters</button>
+    </div>
+  </form>
+</aside>

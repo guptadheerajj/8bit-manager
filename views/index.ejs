@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8bit Manager | <%= locals.title || "Home" %> </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="card.css">
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+
+<body>
+  <%- include("./partials/nav.ejs", {activeTab: "Developers"}) %>
+  <div class="main-grid">
+    <%- include("./partials/sidebar.ejs") %>
+    <main>
+      <% locals.games.forEach(game => {%>
+      <%- include("./partials/card.ejs", {game}) %>
+      <% }); %>
+    </main>
+  </div>
+</body>
+
+</html>

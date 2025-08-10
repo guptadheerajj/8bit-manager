@@ -1,0 +1,21 @@
+<% 
+	const tabs = [
+		{ name: "Home", link: "/" },
+		{ name: "Genre", link: "/genre" },
+		// { name: "Game Modes", link: "/game-modes" },
+		{ name: "Developers", link: "/developers" },
+		{ name: "Add Game", link: "/add/game" },
+		{ name: "Add Developer", link: "/add/developer" },
+		{ name: "Add Game Mode", link: "/add/game-mode" },
+	];
+%>
+
+<nav>
+  <ul>
+    <% tabs.forEach(tab => { %>
+    <li class="<%= locals.activeTab === tab.name? 'active': '' %>">
+      <a href="<%= tab.link %>"><%= tab.name %></a>
+    </li>
+    <% }); %>
+  </ul>
+</nav>

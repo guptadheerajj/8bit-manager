@@ -1,0 +1,32 @@
+nav {
+	padding: 1.4rem 2rem;
+	font-size: 1.4rem;
+}
+
+nav > ul {
+	padding: 0;
+	display: flex;
+	text-align: center;
+	gap: 2rem;
+}
+
+nav > ul li {
+	list-style: none;
+	text-wrap: nowrap;
+	color: aliceblue;
+}
+
+nav > ul li.active {
+	color: var(--accent-primary-dark);
+}
+
+nav > ul li:hover {
+	cursor: pointer;
+	color: var(--accent-primary);
+	transition: color 0.3s ease-in-out;
+}
+
+nav > ul li a {
+	text-decoration: none;
+	color: inherit;
+}

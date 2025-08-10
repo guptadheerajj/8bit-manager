@@ -1,0 +1,23 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	border-radius: 0.8rem;
+	color: white;
+	background-color: var(--bg-secondary);
+}
+
+.card .platform {
+	font-weight: 300;
+}
+
+.card .card-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	color: var(--accent-primary);
+}

@@ -1,0 +1,20 @@
+.price,
+.price-input-container,
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 4px;
+	align-items: center;
+}
+
+.price-input-container input {
+	min-width: 50px;
+	max-width: 60px;
+}
+
+.line {
+	height: 2px;
+	width: 4px;
+	background-color: gray;
+}
