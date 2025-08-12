@@ -38,7 +38,7 @@ const psqlText = `
 		type VARCHAR ( 255 ) NOT NULL UNIQUE
 	);
 		
-	CREATE TABLE IF NOT EXISTS categories (
+	CREATE TABLE IF NOT EXISTS platforms (
 		id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 		type VARCHAR ( 255 ) NOT NULL UNIQUE
 	);
@@ -49,10 +49,10 @@ const psqlText = `
 		PRIMARY KEY (game_id, genres_id)
 	);
 		
-	CREATE TABLE IF NOT EXISTS games_categories (
+	CREATE TABLE IF NOT EXISTS games_platforms (
 		game_id INTEGER NOT NULL REFERENCES games (id),
-		categories_id INTEGER NOT NULL REFERENCES categories (id),
-		PRIMARY KEY (game_id, categories_id)
+		platforms_id INTEGER NOT NULL REFERENCES platforms (id),
+		PRIMARY KEY (game_id, platforms_id)
 	);
 `;
 const params = [];
